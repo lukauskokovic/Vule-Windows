@@ -1,0 +1,20 @@
+﻿<Window x:Class="Vule_Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vule_Windows"
+        mc:Ignorable="d"
+        Title="Vule Window Mover" Height="323.306" Width="280.907" ResizeMode="NoResize" Background="#FF996F6F">
+    <Grid>
+        <CheckBox x:Name="RunAtBootCheckBox" Content="Run at boot" Margin="87,32,77,0" VerticalAlignment="Top" Checked="StartupBoxValueChanged" Unchecked="StartupBoxValueChanged" FontSize="14" HorizontalAlignment="Center"/>
+        <Border BorderBrush="Aqua" Background="Aquamarine" BorderThickness="1" Margin="25,146,25,0" CornerRadius="16" x:Name="exitBorder" Visibility="Visible" Height="138" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Grid>
+                <Label Content="Do you want to keep the app &#xD;&#xA; running in the background?" VerticalAlignment="Top" Margin="14,10,6,0" FontFamily="Yu Gothic UI Semibold" FontSize="14" Height="58" HorizontalAlignment="Center"/>
+                <Button x:Name="yesButton" Margin="10,73,0,0" FontSize="16" FontFamily="Consolas" Click="YesClicked" HorizontalAlignment="Left" Width="98" Height="48" VerticalAlignment="Top">Yes</Button>
+                <Button x:Name="noButton"  FontSize="16" FontFamily="Consolas" Click="NoClicked" Height="48" VerticalAlignment="Top" Margin="118,73,10,0">No</Button>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
