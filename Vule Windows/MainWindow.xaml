@@ -5,16 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vule_Windows"
         mc:Ignorable="d"
-        Title="Vule Window Mover" Height="323.306" Width="280.907" ResizeMode="NoResize" Background="#FF996F6F">
+        Title="Vule Window Mover" Height="323.306" Width="280.907" ResizeMode="NoResize" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <Style TargetType="Ellipse">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.7"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Opacity" Value="1"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <CheckBox x:Name="RunAtBootCheckBox" Content="Run at boot" Margin="87,32,77,0" VerticalAlignment="Top" Checked="StartupBoxValueChanged" Unchecked="StartupBoxValueChanged" FontSize="14" HorizontalAlignment="Center"/>
-        <Border BorderBrush="Aqua" Background="Aquamarine" BorderThickness="1" Margin="25,146,25,0" CornerRadius="16" x:Name="exitBorder" Visibility="Visible" Height="138" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Border VerticalAlignment="Top" Height="40" BorderThickness="0" CornerRadius="16,16,0,0" Background="#FF00B3FF" MouseLeftButtonDown="HeaderMouseDown">
             <Grid>
-                <Label Content="Do you want to keep the app &#xD;&#xA; running in the background?" VerticalAlignment="Top" Margin="14,10,6,0" FontFamily="Yu Gothic UI Semibold" FontSize="14" Height="58" HorizontalAlignment="Center"/>
-                <Button x:Name="yesButton" Margin="10,73,0,0" FontSize="16" FontFamily="Consolas" Click="YesClicked" HorizontalAlignment="Left" Width="98" Height="48" VerticalAlignment="Top">Yes</Button>
-                <Button x:Name="noButton"  FontSize="16" FontFamily="Consolas" Click="NoClicked" Height="48" VerticalAlignment="Top" Margin="118,73,10,0">No</Button>
+                <Label VerticalAlignment="Center" HorizontalAlignment="Center" Content="Vule Windows" Foreground="White" FontSize="20"/>
+                <Ellipse Width="20" Height="20" HorizontalAlignment="Right" Margin="0,0,10,0" Fill="Red" MouseLeftButtonDown="ExitEllipseClick"/>
+                <Ellipse Width="20" Height="20" HorizontalAlignment="Right" Margin="0,0,33,0" Fill="OrangeRed" MouseLeftButtonDown="MinimizeEllipseClick"/>
             </Grid>
         </Border>
-
+        <Grid Margin="0,40,0,0" Background="#B248DEF1">
+            <CheckBox x:Name="RunAtBootCheckBox" Content="Run at boot" Margin="0,21,0,0" VerticalAlignment="Top" Checked="StartupBoxValueChanged" Unchecked="StartupBoxValueChanged" FontSize="14" HorizontalAlignment="Center" BorderBrush="{x:Null}" Foreground="White"/>
+            <Border Background="#FF00B3FF" BorderThickness="1" Margin="0,53,0,0" CornerRadius="16" x:Name="exitBorder" Visibility="Visible" Height="138" VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Grid>
+                    <Label Content="Do you want to keep the app &#xD;&#xA; running in the background?" VerticalAlignment="Top" Margin="14,10,6,0" FontFamily="Yu Gothic UI Semibold" FontSize="14" Height="58" HorizontalAlignment="Center" Foreground="White"/>
+                    <Button Margin="10,73,0,0" FontFamily="Consolas" Click="YesClicked" HorizontalAlignment="Left" Width="98" Height="48" VerticalAlignment="Top">Yes</Button>
+                    <Button FontFamily="Consolas" Click="NoClicked" Height="48" VerticalAlignment="Top" Margin="118,73,10,0">No</Button>
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Window>

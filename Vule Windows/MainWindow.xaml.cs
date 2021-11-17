@@ -28,8 +28,8 @@ namespace Vule_Windows
         public MainWindow()
         {
             InitializeComponent();
-            RegistryText = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
             
+            RegistryText = String.Format("\"{0}\" -silent", System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
             Icon = LoopThread.ToImageSource( Properties.Resources.favicon );
             Notification = new System.Windows.Forms.NotifyIcon
             {
@@ -59,6 +59,7 @@ namespace Vule_Windows
                     CloseApplication();
             };
             RunAtBootCheckBox.IsChecked = DoesApplicationRunOnStartup();
+            if (App.Args[0] == "-silent") HideApplication();
         }
 
         private void CloseApplication()
@@ -92,14 +93,14 @@ namespace Vule_Windows
 
                         return true;
                     }
-                    return false;
                 }
-                catch
-                {
-                    return false;
-                }
+                catch { }
             }
             return false;
-        }//
+        }
+
+        private void ExitEllipseClick(object sender, MouseButtonEventArgs e) => Close();
+        private void MinimizeEllipseClick(object sender, MouseButtonEventArgs e) => WindowState = WindowState.Minimized;
+        private void HeaderMouseDown(object sender, MouseButtonEventArgs e) => DragMove();
     }
 }

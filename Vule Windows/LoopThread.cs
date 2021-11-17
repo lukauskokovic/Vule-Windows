@@ -15,6 +15,7 @@ public static class LoopThread
     static Thread Thread;
     public static void StartThread()
     {
+        if (IsRunning) return;
         IsRunning = true;
         Thread = new Thread(() =>
         {
@@ -28,7 +29,6 @@ public static class LoopThread
                         MoveWindow(1); 
                     else if (IsPressed(LeftArrowState))
                         MoveWindow(-1);
-                    Thread.Sleep(20);
                 }
                 Thread.Sleep(20);
             }

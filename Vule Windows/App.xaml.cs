@@ -13,7 +13,7 @@ namespace Vule_Windows
     /// </summary>
     public partial class App : Application
     {
-        public static string[] Args;
-        void OnStartup(object sender, StartupEventArgs e) => Args = e.Args.Length == 0 ? new string[0] : e.Args;
+        public static string[] Args = new string[0];
+        void OnStartup(object sender, StartupEventArgs e) => Args = e.Args.Length == 0 ? new string[1] : e.Args;
     }
 }
