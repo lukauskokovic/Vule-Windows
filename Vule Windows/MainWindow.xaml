@@ -40,6 +40,7 @@
                     <Button FontFamily="Consolas" Click="NoClicked" Height="48" VerticalAlignment="Top" Margin="118,73,10,0">No</Button>
                 </Grid>
             </Border>
+            <Label Content="Right control+ (left/right) arrow" HorizontalAlignment="Center" Margin="0,211,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16"/>
         </Grid>
     </Grid>
 </Window>
